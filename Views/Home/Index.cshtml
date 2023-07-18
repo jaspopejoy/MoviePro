@@ -26,40 +26,40 @@
     }
 </style>
 
-<section class="px-4">
-<div class="row d-grid gap-2">
-    <span class="btn btn-lg btn-warning fw-bold border-dark">UPCOMING</span>
-</div>
-<div class="row">
-<div class="carousel slide border" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        @{
-            var classText = "active";
-            for (var slide = 0; slide <= 3; slide++)
-            {
-                <div class="carousel-item @classText">
-                    <div class="row">
-                        @foreach (var movie in Model.Upcoming.results.Skip(slide * 4).Take(4))
-                        {
-                            <div class="col-sm-3 mb-2">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="@movie.poster_path" class="card-img-top" alt="...">
-                                    <div class="card-body d-grid gap-2">
-                                        <h5 class="card-title  clamptitle">@movie.title</h5>
-                                        <p class="card-text clampoverview">@movie.overview</p>
-                                        <a asp-action="Details" asp-controller="Movies" asp-route-id="@movie.id" class="btn btn-lg btn-warning fw-bold">Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-                classText = "";
-            }
-        }
+<section class="px-4 pt-4">
+    <div class="row d-grid gap-2">
+        <span class="btn btn-lg btn-warning fw-bold border-dark">UPCOMING</span>
     </div>
-</div>
-</div>
+    <div class="row">
+        <div class="carousel slide p-3" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                    var classText = "active";
+                    for (var slide = 0; slide <= 3; slide++)
+                    {
+                        <div class="carousel-item @classText">
+                            <div class="row">
+                                @foreach (var movie in Model.Upcoming.results.Skip(slide * 4).Take(4))
+                                {
+                                    <div class="col-sm-3 mb-2">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="@movie.poster_path" class="card-img-top" alt="...">
+                                            <div class="card-body d-grid gap-2">
+                                                <h5 class="card-title  clamptitle">@movie.title</h5>
+                                                <p class="card-text clampoverview">@movie.overview</p>
+                                                <a asp-action="Details" asp-controller="Movies" asp-route-id="@movie.id" class="btn btn-lg btn-warning fw-bold">Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        classText = "";
+                    }
+                }
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="px-4">
@@ -67,7 +67,7 @@
         <span class="btn btn-lg btn-warning fw-bold border-dark">NOW PLAYING</span>
     </div>
     <div class="row">
-        <div class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel slide p-3" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @{
                     classText = "active";
@@ -99,11 +99,11 @@
 </section>
 
 <section class="px-4">
-    <div class="row d-grid gap-2">
+    <div class="row d-grid gap-2 mb-3">
         <span class="btn btn-lg btn-warning fw-bold border-dark">POPULAR</span>
     </div>
     <div class="row">
-        <div class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel slide p-3" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @{
                     classText = "active";
@@ -135,11 +135,11 @@
 </section>
 
 <section class="px-4">
-    <div class="row d-grid gap-2">
-        <sPpan class="btn btn-lg btn-warning fw-bold border-dark">TOP RATED</span>
+    <div class="row d-grid gap-2 mb-3">
+        <span class="btn btn-lg btn-warning fw-bold border-dark">TOP RATED</span>
     </div>
     <div class="row">
-        <div class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel slide p-3" data-bs-ride="carousel">
             <div class="carousel-inner">
                 @{
                     classText = "active";
