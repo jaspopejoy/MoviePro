@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MoviePro.Data;
+using MoviePro.Helpers;
 using MoviePro.Models.Settings;
 using MoviePro.Services;
 using MoviePro.Services.Interfaces;
@@ -33,6 +34,9 @@ builder.Services.AddScoped<IDataMAppingService, TMDBMappingService>();
 builder.Services.AddSingleton<IImageService, BasicImageService>();
 
 var app = builder.Build();
+
+var scope = app.Services.CreateScope();
+await DataHelper.ManageDataAsync(scope.ServiceProvider);
 
 var dataService = app.Services
                     .CreateScope()
